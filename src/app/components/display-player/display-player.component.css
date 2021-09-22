@@ -1,0 +1,33 @@
+.image-box {
+    border-radius: 300px;
+    object-fit: cover;
+    height: 12rem;
+    width: 12rem;
+    border: solid 0.3rem rgb(100, 100, 100);
+}
+
+.row {
+    margin: 2rem;
+}
+
+.player-box {
+    background-color: rgb(204, 204, 204);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 5px 5px 20px #2b2a2a;
+}
+
+.btn {
+    margin-right: 0.3rem;
+}
+
+.image-part {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.data-part {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 3rem;
+}

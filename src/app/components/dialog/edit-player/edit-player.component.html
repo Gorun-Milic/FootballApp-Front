@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Dialog</h2>
+<mat-dialog-content>Are you sure you want to update player?</mat-dialog-content>
+
+<div class="form-group">
+        <mat-card>
+            <mat-card-content>
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Goalls</mat-label>
+                        <input matInput type="number" required name="goalls" [(ngModel)]="playerModel.goals">
+                      </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Assists</mat-label>
+                        <input matInput type="number" required name="assists" [(ngModel)]="playerModel.assists">
+                      </mat-form-field>
+                </div>
+            </mat-card-content>
+        </mat-card>   
+</div>
+
+<mat-dialog-actions>
+    <button class="btn btn-success"mat-button (click)="editPlayer()">Yes</button>
+    <button class="btn btn-danger" mat-button mat-dialog-close>No</button>
+</mat-dialog-actions>

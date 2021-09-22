@@ -1,0 +1,91 @@
+<app-navigation></app-navigation>
+
+<div class="add-player-body">
+    <div class="add-player-box">
+        <div class="form-group">
+            <form #playerForm="ngForm" (ngSubmit)="addPlayer(playerForm)">
+                <mat-card>
+                    <mat-card-content>
+                        <mat-card-title>Add player</mat-card-title>
+                        <div>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Name</mat-label>
+                                <input matInput type="text" placeholder="Username" required name="name"
+                                    [(ngModel)]="playerModel.name">
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Surname</mat-label>
+                                <input matInput type="text" required name="surname" [(ngModel)]="playerModel.surname">
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Foot</mat-label>
+                                <input matInput type="text" required name="foot" [(ngModel)]="playerModel.foot">
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Height</mat-label>
+                                <input matInput type="number" required name="height" [(ngModel)]="playerModel.height">
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Value</mat-label>
+                                <input matInput type="number" required name="value" [(ngModel)]="playerModel.value">
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <!-- <mat-form-field appearance="fill">
+                                <mat-label>Date of birth</mat-label>
+                                <input matInput type="text" required name="dateofbirth" [(ngModel)]="playerModel.dateofbirth">
+                              </mat-form-field> -->
+                            <mat-form-field>
+                                <mat-label>Choose a date</mat-label>
+                                <input matInput [matDatepicker]="picker" name="dateOfBirth" [(ngModel)]="dateOfBirth">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Select</mat-label>
+                                <mat-select name="position" [(ngModel)]="playerModel.position">
+                                    <mat-option *ngFor="let position of positions" value="{{position}}">{{position}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Select</mat-label>
+                                <mat-select name="nationid1" [(ngModel)]="playernation.nationid1">
+                                    <mat-option *ngFor="let nation of nations" value="{{nation.nationid}}">
+                                        {{nation.name}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Select</mat-label>
+                                <mat-select name="nationid2" [(ngModel)]="playernation.nationid2">
+                                    <mat-option *ngFor="let nation of nations" value="{{nation.nationid}}">
+                                        {{nation.name}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="button-part">
+                            <input style="display: none;" #inputFileButton type="file" (change)="onFileChanged($event)">
+                            <div class="btn btn-light" (click)="inputFileButton.click()">Choose File</div>
+                        </div>
+                        <button type="submit" class="btn btn-warning">Add Player</button>
+                    </mat-card-content>
+                </mat-card>
+
+            </form>
+        </div>
+    </div>
+</div>

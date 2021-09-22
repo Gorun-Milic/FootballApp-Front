@@ -1,0 +1,32 @@
+<div class="form-group">
+    <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>Registration</mat-card-title>
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Club name</mat-label>
+                        <input matInput type="text" required minlength="5" name="name" [(ngModel)]="clubModel.name">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" required minlength="5" name="password" [(ngModel)]="clubModel.password">
+                      </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Select</mat-label>
+                        <mat-select name="league" [(ngModel)]="clubModel.leagueid">
+                          <mat-option *ngFor="let league of leagues" value="{{league.leagueid}}">{{league.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <button type="submit" class="btn btn-warning">Register</button>
+            </mat-card-content>
+        </mat-card>
+        
+    </form>
+</div>
+

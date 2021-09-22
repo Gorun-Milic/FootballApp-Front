@@ -1,0 +1,28 @@
+.row {
+    margin: 1rem;
+}
+
+.image-box {
+    border-radius: 10px;
+}
+
+tr, td, th {
+    padding: 1rem;
+}
+
+.image-part {
+    margin: 0.3rem;
+}
+
+.img-round {
+    border-radius: 300px;
+}
+
+.message-box {
+    background-color: rgb(63, 63, 63);
+    color: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    margin: 2rem;
+    box-shadow: 5px 5px 20px #2b2a2a;
+}

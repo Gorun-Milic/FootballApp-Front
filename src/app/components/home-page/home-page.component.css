@@ -1,0 +1,12 @@
+.text-box {
+    color: #fff;
+    padding: 2rem;
+}
+
+@media(max-width: 30rem) {
+
+    /* Navigation */
+    .d-block {
+        height: 300px;
+    }
+}

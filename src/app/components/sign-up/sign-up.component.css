@@ -1,0 +1,20 @@
+.sign-up-body {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.sign-up-box {
+    margin: 2rem;
+    display: block;
+    /* box-shadow: 0px 0px 10px 1px rgb(65, 64, 64); */
+    border-radius: 100px;
+}
+
+.message-box {
+    background-color: rgb(63, 63, 63);
+    color: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    margin: 2rem;
+    box-shadow: 5px 5px 20px #2b2a2a;
+}

@@ -1,0 +1,86 @@
+<app-navigation></app-navigation>
+
+<div class="container">
+
+  <div class="row">
+    <mat-card>
+      <div class="image-part">
+        <img class="image-box" *ngIf="!convertedImage; else elseBlock" src="../../../assets/images/club-logo.jpg"
+          height="150" width="150">
+        <ng-template #elseBlock>
+          <img class="image-box" [src]="convertedImage" height="150" width="150">
+        </ng-template>
+      </div>
+
+      <div class="button-part">
+        <input style="display: none;" #inputFileButton type="file" (change)="onFileChanged($event)">
+        <button class="btn btn-light" (click)="inputFileButton.click()">Choose File</button>
+        <button class="btn btn-primary" [disabled]="buttonDisabled" #uploadButton (click)="uploadPhoto()">Upload</button>
+      </div>
+
+      <div class="content-part">
+        <mat-card-title>{{club.name}}</mat-card-title>
+        <mat-card-content>
+          <h5>Budget: {{club.value}} M$</h5>
+          <h5>League: {{club.league.name}}</h5>
+        </mat-card-content>
+      </div>
+    </mat-card>
+  </div>
+
+
+  <div class="row" *ngIf="players.length>0; else displayMessageBlock">
+    <mat-card>
+      <div class="table-responsive">
+        <table class="table table-dark table-borderless table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Surname</th>
+              <th scope="col">Date of birth</th>
+              <th scope="col">Goals</th>
+              <th scope="col">Assists</th>
+              <th scope="col">Foot</th>
+              <th scope="col">Activities</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let player of players">
+              <td scope="row">
+                <img class="img-round" *ngIf="!player.img; else elseBlock"
+                  src="../../../assets/images/profile photo.jpg" height="45" width="45">
+                <ng-template #elseBlock>
+                  <img class="img-round" src="{{'data:image/jpeg;base64,' + player.img}}" height="45" width="45">
+                </ng-template>
+              </td>
+              <td>{{player.name}}</td>
+              <td>{{player.surname}}</td>
+              <td>{{player.dateofbirth}}</td>
+              <td>{{player.goals}}</td>
+              <td>{{player.assists}}</td>
+              <td>{{player.foot}}</td>
+              <td><button class="btn btn-outline-danger" mat-raised-button
+                  (click)="openDeleteDialog(player.playerid)">Delete</button><button class="btn btn-outline-success"
+                  mat-raised-button (click)="openEditDialog(player.playerid)">Edit</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </mat-card>
+  </div>
+  <ng-template #displayMessageBlock>
+    <div class="message-box">No player added yet!</div>
+  </ng-template>
+  <div class="row">
+    <div class="col-2">
+      <button [routerLink]="['/add-player']" class="btn btn-light">Add player</button>
+    </div>
+  </div>
+  <div class="row" *ngIf="players.length>0">
+    <mat-card>
+      <app-chart [club]="club"></app-chart>
+    </mat-card>
+  </div>
+
+</div>

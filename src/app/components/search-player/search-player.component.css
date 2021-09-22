@@ -1,0 +1,44 @@
+.card {
+    background-color: rgb(65, 65, 65);
+    color: white;
+    margin: 1rem;
+    box-shadow: 5px 5px 20px #2b2a2a;
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 5px 5px 20px #1a1a1a;
+}
+
+.container {
+    /* margin: 0rem 10rem; */
+    margin: auto;
+}
+
+.row {
+    margin-top: 1rem;
+}
+
+.form-box {
+    background-color: rgb(228, 228, 228);
+    /* background-color: rgb(82, 82, 82); */
+    /* color: #fff; */
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 5px 5px 20px #2b2a2a;
+}
+
+
+.list-group-item {
+    background-color: rgb(42, 145, 204);
+    color: #fff;
+    text-align: center;
+}
+
+.list-group-item:hover {
+    background-color: rgb(22, 113, 165);
+}
+.card-img-top {
+    object-fit: cover;
+    height: 17rem;
+}

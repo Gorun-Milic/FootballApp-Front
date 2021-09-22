@@ -1,0 +1,51 @@
+<app-navigation></app-navigation>
+
+<div class="container">
+    <div class="row">
+        <div class="form-box">
+            <form>
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" name="name" [(ngModel)]="searchPlayer.name">
+                </div>
+                <div class="mb-3">
+                  <label for="surname" class="form-label">Surname</label>
+                  <input type="text" class="form-control" name="surname" [(ngModel)]="searchPlayer.surname">
+                </div>
+                <div class="mb-3">
+                    <label for="position" class="form-label">Position</label>
+                    <select class="form-select" name="position" [(ngModel)]="searchPlayer.position">
+                        <option *ngFor="let position of positions" [ngValue]="position">{{position}}</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                  <label for="foot" class="form-label">Foot</label>
+                  <input type="text" class="form-control" name="foot" [(ngModel)]="searchPlayer.foot">
+                </div>
+                <div class="mb-3">
+                  <label for="height" class="form-label">Height</label>
+                  <input type="number" class="form-control" name="height" [(ngModel)]="searchPlayer.height">
+                </div>
+                <button type="submit" (click)="searchPlayers()" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 col-sm-12 col-12" *ngFor="let player of players">
+            <div class="card" style="width: 17rem;">
+                <img class="card-img-top" *ngIf="!player.img; else elseBlock" src="../../../assets/images/profile photo.jpg">
+                <ng-template #elseBlock>
+                    <img class="card-img-top" src="{{'data:image/jpeg;base64,' + player.img}}">
+                </ng-template>
+                <div (click)="showPlayer(player.playerid)" class="card-body">
+                    <h5 class="card-title">{{player.surname}}</h5>
+                    <p class="card-text">Value: {{player.value}}M$</p>
+                    <p class="card-text">Position: {{player.position}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" isSaved [player]="player">Save</li>
+                </ul>
+            </div>
+        </div>
+</div>

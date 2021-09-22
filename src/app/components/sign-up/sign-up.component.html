@@ -1,0 +1,17 @@
+<app-home-page-navigation></app-home-page-navigation>
+
+<div class="sign-up-body">
+    <div *ngIf="!loginForm" class="sign-up-box">
+        <app-register (onRegister)="switchComponent()"></app-register>
+        <div class="message-box">
+            Already have an Account? <a (click)="switchComponent()" style="color: #ffe600">Click here</a>
+        </div>
+    </div>
+
+    <div *ngIf="loginForm" class="sign-up-box">
+        <app-login></app-login>
+        <div class="message-box">
+            Don't have an account yet? <a (click)="switchComponent()" style="color: #ffe600">Click here</a>
+        </div>
+    </div>
+</div>

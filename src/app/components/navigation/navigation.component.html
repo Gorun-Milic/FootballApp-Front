@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-warning">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="../../../assets/images/logo-ball1.png" width="50px">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a [routerLink]="['/club-profile']" routerLinkActive="active" aria-current="page" class="nav-link active">My
+            Profile</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Search
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a [routerLink]="['/search-club']" class="dropdown-item" href="#">Search for Clubs</a></li>
+            <li><a [routerLink]="['/search-player']" class="dropdown-item" href="#">Search for Players</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/saved']" routerLinkActive="active" class="nav-link">Saved</a>
+        </li>
+      </ul>
+    </div>
+    <form>
+      <button class="btn btn-outline-dark my-2 my-sm-0" (click)="logout()">Log out</button>
+    </form>
+  </div>
+</nav>

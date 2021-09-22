@@ -1,0 +1,43 @@
+<app-navigation></app-navigation>
+
+<div class="container">
+    <div class=" row">
+        <div class="form-box">
+            <form>
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="name" name="name" [(ngModel)]="searchClub.name">
+                </div>
+                <div class="mb-3">
+                  <label for="value" class="form-label">Value</label>
+                  <input type="number" class="form-control" id="value" name="value" [(ngModel)]="searchClub.value">
+                </div>
+                <div class="mb-3">
+                    <label for="league" class="form-label">League</label>
+                    <select class="form-select" name="league" [(ngModel)]="searchClub.leagueid">
+                        <option *ngFor="let league of leagues" [ngValue]="league.leagueid">{{league.name}}</option>
+                    </select>
+                </div>
+                <button type="submit" (click)="searchClubs()" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 col-sm-12 col-12" *ngFor="let club of clubs">
+            <div (click)="showClub(club.clubid)" class="card" style="width: 17rem;">
+                <img class="card-img-top" *ngIf="!club.img; else elseBlock" src="../../../assets/images/club-logo.jpg">
+                <ng-template #elseBlock>
+                    <img class="card-img-top" src="{{'data:image/jpeg;base64,' + club.img}}">
+                </ng-template>
+                <div class="card-body">
+                    <h5 class="card-title">{{club.name}}</h5>
+                    <p class="card-text">Budget: {{club.value}}M$</p>
+                    <p class="card-text">League: {{club.league.name}}</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>

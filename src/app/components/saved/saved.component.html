@@ -1,0 +1,31 @@
+<app-navigation></app-navigation>
+
+<div class="container">
+
+
+        <div *ngIf="savedPlayers.length>0; else displayMessageBlock" class="row">
+            <div class="col-md-3 col-sm-12 col-12" *ngFor="let savedPlayer of savedPlayers">
+                <div (click)="showPlayer(savedPlayer.player.playerid)" class="card" style="width: 17rem;">
+                    <img class="card-img-top" *ngIf="!savedPlayer.player.img; else elseBlock"
+                        src="../../../assets/images/profile photo.jpg">
+                    <ng-template #elseBlock>
+                        <img class="card-img-top" src="{{'data:image/jpeg;base64,' + savedPlayer.player.img}}">
+                    </ng-template>
+                    <div class="card-body">
+                        <h5 class="card-title">{{savedPlayer.player.surname}}</h5>
+                        <p class="card-text">Value: {{savedPlayer.player.value}}M$</p>
+                        <p class="card-text">Position: {{savedPlayer.player.position}}</p>
+                    </div>
+                    <!-- <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Save</li>
+                    </ul> -->
+                </div>
+            </div>
+            
+
+        </div>
+        <ng-template #displayMessageBlock>
+            <div class="message-box">No player is saved yet!</div>
+        </ng-template>
+
+    </div>

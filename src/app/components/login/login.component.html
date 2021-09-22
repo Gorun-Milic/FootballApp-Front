@@ -1,0 +1,23 @@
+<div class="form-group">
+    <form #loginForm="ngForm" (ngSubmit)="authenticate(loginForm)">
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>Login</mat-card-title>
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Club name</mat-label>
+                        <input matInput type="text" required name="name" [(ngModel)]="clubModel.name">
+                      </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" required name="password" [(ngModel)]="clubModel.password">
+                      </mat-form-field>
+                </div>
+                <button type="submit" class="btn btn-warning">Login</button>
+            </mat-card-content>
+        </mat-card>
+        
+    </form>
+</div>
